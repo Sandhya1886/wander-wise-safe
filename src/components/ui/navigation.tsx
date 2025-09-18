@@ -41,19 +41,22 @@ const Navigation = ({ isAuthenticated = false }: NavigationProps) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
+                  "text-sm font-medium transition-colors hover:text-primary relative",
                   isActive(item.href)
                     ? "text-primary"
                     : "text-muted-foreground"
                 )}
               >
                 {item.name}
+                {isActive(item.href) && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                )}
               </Link>
             ))}
             
@@ -62,13 +65,16 @@ const Navigation = ({ isAuthenticated = false }: NavigationProps) => {
                 key={item.name}
                 to={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
+                  "text-sm font-medium transition-colors hover:text-primary relative",
                   isActive(item.href)
                     ? "text-primary"
                     : "text-muted-foreground"
                 )}
               >
                 {item.name}
+                {isActive(item.href) && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                )}
               </Link>
             ))}
           </div>

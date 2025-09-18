@@ -19,7 +19,8 @@ const queryClient = new QueryClient();
 
 const App = () => {
   // TODO: Replace with actual authentication state
-  const isAuthenticated = false;
+  // Set to true temporarily so users can access dashboard
+  const isAuthenticated = true;
 
   return (
     <QueryClientProvider client={queryClient}>

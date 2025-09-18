@@ -55,70 +55,200 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 gradient-hero opacity-90"></div>
-        <div className="absolute inset-0">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 gradient-hero"></div>
+        <div className="absolute inset-0 opacity-20">
           <img 
             src={heroImage} 
             alt="Travel Safety Hero"
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 animate-slide-up">
-            Travel Safely,
-            <br />
-            <span className="gradient-primary bg-clip-text text-transparent">Stay Protected</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Advanced travel safety platform with real-time monitoring, emergency alerts, 
-            and AI-powered risk assessment to keep you safe wherever you go.
-          </p>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              size="lg" 
-              className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 shadow-glow"
-              asChild
-            >
-              <Link to="/signup">
-                Get Started Free
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+        <div className="relative container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 animate-slide-up">
+              Your Safety,
+              <br />
+              <span className="text-white drop-shadow-lg">Our Priority</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/95 mb-12 max-w-3xl mx-auto leading-relaxed">
+              The world's most advanced travel safety platform. Real-time monitoring, instant emergency alerts, 
+              and AI-powered risk assessment to protect you anywhere, anytime.
+            </p>
             
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white/10 text-lg px-8 py-6"
-            >
-              <Play className="mr-2 h-5 w-5" />
-              Watch Demo
-            </Button>
-            
-            <Button 
-              size="lg" 
-              className="bg-emergency hover:bg-emergency/90 text-white text-lg px-8 py-6 animate-emergency-pulse"
-              asChild
-            >
-              <Link to="/emergency">
-                <AlertTriangle className="mr-2 h-5 w-5" />
-                Emergency Alert
-              </Link>
-            </Button>
+            {/* Main CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+              <Button 
+                size="lg" 
+                className="bg-white text-primary hover:bg-white/90 text-xl px-12 py-8 rounded-xl shadow-glow transition-all hover:scale-105"
+                asChild
+              >
+                <Link to="/signup">
+                  <Shield className="mr-3 h-6 w-6" />
+                  Get Started Free
+                </Link>
+              </Button>
+              
+              <Button 
+                size="lg" 
+                className="bg-emergency hover:bg-emergency/90 text-white text-xl px-12 py-8 rounded-xl animate-pulse-glow transition-all hover:scale-105"
+                asChild
+              >
+                <Link to="/emergency">
+                  <AlertTriangle className="mr-3 h-6 w-6" />
+                  Emergency Alert
+                </Link>
+              </Button>
+            </div>
+
+            {/* Secondary Actions */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl backdrop-blur-sm"
+              >
+                <Play className="mr-2 h-5 w-5" />
+                Watch Demo
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl backdrop-blur-sm"
+                asChild
+              >
+                <Link to="/features">
+                  <Eye className="mr-2 h-5 w-5" />
+                  View Features
+                </Link>
+              </Button>
+            </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {/* Floating Stats Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-white/80">{stat.label}</div>
-              </div>
+              <Card key={index} className="bg-white/10 backdrop-blur-md border-white/20 text-center hover:bg-white/20 transition-all hover:scale-105">
+                <CardContent className="pt-6">
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-white/80 font-medium">{stat.label}</div>
+                </CardContent>
+              </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About TourSafe Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <Badge className="mb-6 gradient-primary text-lg px-6 py-2">About TourSafe</Badge>
+              <h2 className="text-4xl md:text-6xl font-bold mb-8">
+                The Future of Travel Safety
+              </h2>
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                TourSafe revolutionizes how travelers stay safe with cutting-edge technology, 
+                real-time monitoring, and instant emergency response capabilities.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+              <Card className="text-center p-8 hover:shadow-lg transition-all hover:-translate-y-2">
+                <div className="mx-auto p-4 rounded-full gradient-primary w-fit mb-6">
+                  <Shield className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Real-Time Protection</h3>
+                <p className="text-muted-foreground text-lg">
+                  AI-powered monitoring that tracks your safety 24/7, alerting you to potential 
+                  dangers before they become threats.
+                </p>
+              </Card>
+
+              <Card className="text-center p-8 hover:shadow-lg transition-all hover:-translate-y-2">
+                <div className="mx-auto p-4 rounded-full gradient-safety w-fit mb-6">
+                  <Users className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Community Network</h3>
+                <p className="text-muted-foreground text-lg">
+                  Join a global network of travelers sharing real-time safety updates and 
+                  supporting each other's journeys.
+                </p>
+              </Card>
+
+              <Card className="text-center p-8 hover:shadow-lg transition-all hover:-translate-y-2">
+                <div className="mx-auto p-4 rounded-full gradient-emergency w-fit mb-6">
+                  <AlertTriangle className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Emergency Response</h3>
+                <p className="text-muted-foreground text-lg">
+                  Instant emergency alerts to authorities and trusted contacts with your exact 
+                  location and safety status.
+                </p>
+              </Card>
+            </div>
+
+            {/* Key Features Grid */}
+            <div className="bg-muted/30 rounded-3xl p-8 md:p-12">
+              <h3 className="text-3xl font-bold text-center mb-12">What Makes TourSafe Special</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="flex items-start space-x-4">
+                  <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0">
+                    <MapPin className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-2">Interactive Safety Maps</h4>
+                    <p className="text-muted-foreground">
+                      View real-time danger zones, safe areas, crowd density, and crime rates 
+                      with our advanced mapping system.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="p-2 rounded-lg bg-success/10 flex-shrink-0">
+                    <Smartphone className="h-6 w-6 text-success" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-2">Device Monitoring</h4>
+                    <p className="text-muted-foreground">
+                      Track battery levels, movement status, and connectivity to ensure 
+                      you're always reachable in emergencies.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="p-2 rounded-lg bg-warning/10 flex-shrink-0">
+                    <Route className="h-6 w-6 text-warning" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-2">Smart Route Planning</h4>
+                    <p className="text-muted-foreground">
+                      AI-optimized routes that avoid danger zones and prioritize your safety 
+                      while getting you to your destination.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="p-2 rounded-lg bg-emergency/10 flex-shrink-0">
+                    <Lock className="h-6 w-6 text-emergency" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-2">Blockchain Digital ID</h4>
+                    <p className="text-muted-foreground">
+                      Secure digital identity verification for trusted interactions and 
+                      emergency situations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -375,34 +505,93 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-hero">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Travel with Confidence?
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join thousands of travelers who trust TourSafe for their safety needs. 
-            Get started today with our free plan.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6"
-              asChild
-            >
-              <Link to="/signup">
-                Get Started Free
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white/10 text-lg px-8 py-6"
-              asChild
-            >
-              <Link to="/contact">Contact Sales</Link>
-            </Button>
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 gradient-hero"></div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-success/20"></div>
+        </div>
+        <div className="relative container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+              Start Your Safe Journey Today
+            </h2>
+            <p className="text-xl md:text-2xl text-white/95 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Join over 50,000 travelers who trust TourSafe for their safety needs. 
+              Start with our free plan and upgrade as you explore more.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+              <Button 
+                size="lg" 
+                className="bg-white text-primary hover:bg-white/90 text-xl px-12 py-8 rounded-2xl shadow-glow transition-all hover:scale-105"
+                asChild
+              >
+                <Link to="/signup">
+                  <Shield className="mr-3 h-6 w-6" />
+                  Get Started Free
+                  <ArrowRight className="ml-3 h-6 w-6" />
+                </Link>
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white/30 text-white hover:bg-white/10 text-xl px-12 py-8 rounded-2xl backdrop-blur-sm transition-all hover:scale-105"
+                asChild
+              >
+                <Link to="/contact">
+                  <Users className="mr-3 h-6 w-6" />
+                  Contact Sales
+                </Link>
+              </Button>
+            </div>
+
+            {/* Quick Access Links */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Button 
+                variant="outline" 
+                className="border-white/20 text-white hover:bg-white/10 py-6 rounded-xl backdrop-blur-sm"
+                asChild
+              >
+                <Link to="/dashboard">
+                  <MapPin className="mr-2 h-5 w-5" />
+                  Dashboard
+                </Link>
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="border-white/20 text-white hover:bg-white/10 py-6 rounded-xl backdrop-blur-sm"
+                asChild
+              >
+                <Link to="/features">
+                  <Eye className="mr-2 h-5 w-5" />
+                  Features
+                </Link>
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="border-white/20 text-white hover:bg-white/10 py-6 rounded-xl backdrop-blur-sm"
+                asChild
+              >
+                <Link to="/blog">
+                  <Users className="mr-2 h-5 w-5" />
+                  Safety Blog
+                </Link>
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="border-emergency/30 text-white hover:bg-emergency/20 py-6 rounded-xl backdrop-blur-sm animate-pulse-glow"
+                asChild
+              >
+                <Link to="/emergency">
+                  <AlertTriangle className="mr-2 h-5 w-5" />
+                  Emergency
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
