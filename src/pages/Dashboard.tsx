@@ -17,6 +17,7 @@ import {
   AlertCircle
 } from "lucide-react";
 import dashboardPreview from "@/assets/dashboard-preview.jpg";
+import WorldMap from "@/components/WorldMap";
 
 const Dashboard = () => {
   const securityScore = 85;
@@ -146,35 +147,7 @@ const Dashboard = () => {
         </TabsList>
 
         <TabsContent value="map">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Map className="h-5 w-5 mr-2" />
-                Interactive Safety Map
-              </CardTitle>
-              <CardDescription>
-                View danger zones, safe areas, and crowd status in real-time
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="relative h-96 bg-muted rounded-lg overflow-hidden">
-                <img 
-                  src={dashboardPreview} 
-                  alt="Safety Map Dashboard"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4 space-y-2">
-                  <Badge className="bg-success">Safe Zone</Badge>
-                  <Badge variant="secondary">Low Crowd</Badge>
-                </div>
-                <div className="absolute bottom-4 right-4">
-                  <Button size="sm" className="gradient-primary">
-                    View Full Map
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <WorldMap />
         </TabsContent>
 
         <TabsContent value="history">

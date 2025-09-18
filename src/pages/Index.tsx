@@ -101,25 +101,25 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Secondary Actions */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {/* Secondary Actions - More Prominent */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl backdrop-blur-sm"
+                className="border-2 border-white text-white hover:bg-white hover:text-primary text-xl px-12 py-8 rounded-xl backdrop-blur-sm font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105"
               >
-                <Play className="mr-2 h-5 w-5" />
+                <Play className="mr-3 h-6 w-6" />
                 Watch Demo
               </Button>
               
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl backdrop-blur-sm"
+                className="border-2 border-white text-white hover:bg-white hover:text-primary text-xl px-12 py-8 rounded-xl backdrop-blur-sm font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105"
                 asChild
               >
                 <Link to="/features">
-                  <Eye className="mr-2 h-5 w-5" />
+                  <Eye className="mr-3 h-6 w-6" />
                   View Features
                 </Link>
               </Button>
