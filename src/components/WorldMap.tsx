@@ -27,6 +27,14 @@ const WorldMap = () => {
     { id: 1, type: "Weather Alert", location: "Mumbai", x: "70%", y: "45%" },
     { id: 2, type: "High Crime", location: "Rio", x: "28%", y: "65%" },
     { id: 3, type: "Protest", location: "Paris", x: "48%", y: "28%" },
+    { id: 4, type: "Theft Area", location: "Barcelona", x: "46%", y: "32%" },
+    { id: 5, type: "Road Closure", location: "Bangkok", x: "73%", y: "48%" },
+  ];
+
+  const theftZones = [
+    { id: 1, location: "Rome Center", severity: "High", x: "49%", y: "33%" },
+    { id: 2, location: "Bangkok Markets", severity: "Medium", x: "73%", y: "47%" },
+    { id: 3, location: "Mexico City", severity: "High", x: "18%", y: "52%" },
   ];
 
   const crowdStatus = [
@@ -146,6 +154,31 @@ const WorldMap = () => {
                   <div className="bg-background border border-border rounded-lg p-2 shadow-lg whitespace-nowrap">
                     <p className="font-medium text-sm">{crowd.location}</p>
                     <p className="text-xs text-muted-foreground">Crowd: {crowd.status}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Theft Zone Indicators */}
+            {theftZones.map((zone) => (
+              <div
+                key={zone.id}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
+                style={{ left: zone.x, top: zone.y }}
+              >
+                <div className={`w-3 h-3 rounded-full border-2 ${
+                  zone.severity === 'High' ? 'bg-red-500 border-red-600' : 
+                  zone.severity === 'Medium' ? 'bg-orange-500 border-orange-600' : 'bg-yellow-500 border-yellow-600'
+                } animate-ping`}></div>
+                <div className={`w-3 h-3 rounded-full ${
+                  zone.severity === 'High' ? 'bg-red-500' : 
+                  zone.severity === 'Medium' ? 'bg-orange-500' : 'bg-yellow-500'
+                }`}></div>
+                <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="bg-background border border-border rounded-lg p-2 shadow-lg whitespace-nowrap">
+                    <p className="font-medium text-sm text-red-600">Theft Zone</p>
+                    <p className="text-xs text-muted-foreground">{zone.location}</p>
+                    <p className="text-xs font-medium">Risk: {zone.severity}</p>
                   </div>
                 </div>
               </div>

@@ -13,7 +13,11 @@ import {
   Eye,
   Lock,
   Zap,
-  Globe
+  Globe,
+  Phone,
+  MessageSquare,
+  Navigation,
+  MapPinned
 } from "lucide-react";
 import incidentReporting from "@/assets/incident-reporting.jpg";
 import emergencyAlerts from "@/assets/emergency-alerts.jpg";
@@ -62,6 +66,34 @@ const Features = () => {
       description: "Secure digital identity verification for trusted interactions",
       image: null,
       tags: ["Blockchain", "Secure", "Verified Identity"]
+    },
+    {
+      icon: Phone,
+      title: "Panic Button",
+      description: "One-touch emergency activation with instant alerts to authorities and contacts",
+      image: null,
+      tags: ["Instant Alert", "One-Touch", "Emergency"]
+    },
+    {
+      icon: MessageSquare,
+      title: "Whisper Code Emergency",
+      description: "Discrete code words that trigger silent emergency alerts without detection",
+      image: null,
+      tags: ["Silent Alert", "Code Words", "Discrete"]
+    },
+    {
+      icon: Navigation,
+      title: "Safe Route Search",
+      description: "Find the safest routes to destinations with real-time safety analysis",
+      image: null,
+      tags: ["Route Planning", "Safety Analysis", "Real-time"]
+    },
+    {
+      icon: MapPinned,
+      title: "Danger Zone Mapping",
+      description: "Live mapping of theft areas, crowded zones, and high-risk locations",
+      image: null,
+      tags: ["Live Mapping", "Theft Areas", "Risk Analysis"]
     }
   ];
 
