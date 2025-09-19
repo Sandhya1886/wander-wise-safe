@@ -35,8 +35,8 @@ const Navigation = ({ isAuthenticated = false }: NavigationProps) => {
           {/* Logo - More Prominent */}
           <Link to="/" className="flex items-center space-x-3">
             <Shield className="h-10 w-10 text-primary animate-pulse" />
-            <span className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
-              TourSafe
+            <span className="text-3xl font-bold text-primary hover:text-primary/80 transition-colors">
+              TOURSAFE
             </span>
           </Link>
 

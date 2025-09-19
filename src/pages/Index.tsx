@@ -106,21 +106,21 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-primary text-xl px-12 py-8 rounded-xl backdrop-blur-sm font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                className="border-3 border-white/90 text-white hover:bg-white hover:text-primary text-2xl px-16 py-10 rounded-2xl backdrop-blur-md font-bold shadow-2xl hover:shadow-white/30 transition-all hover:scale-110 animate-pulse-glow"
               >
-                <Play className="mr-3 h-6 w-6" />
-                Watch Demo
+                <Play className="mr-4 h-8 w-8" />
+                WATCH DEMO
               </Button>
               
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-primary text-xl px-12 py-8 rounded-xl backdrop-blur-sm font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                className="border-3 border-white/90 text-white hover:bg-white hover:text-primary text-2xl px-16 py-10 rounded-2xl backdrop-blur-md font-bold shadow-2xl hover:shadow-white/30 transition-all hover:scale-110 animate-pulse-glow"
                 asChild
               >
                 <Link to="/features">
-                  <Eye className="mr-3 h-6 w-6" />
-                  View Features
+                  <Eye className="mr-4 h-8 w-8" />
+                  VIEW FEATURES
                 </Link>
               </Button>
             </div>
