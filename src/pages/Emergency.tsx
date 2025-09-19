@@ -15,7 +15,9 @@ import {
   Smartphone,
   Clock,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Zap,
+  MessageSquare
 } from "lucide-react";
 import emergencyAlerts from "@/assets/emergency-alerts.jpg";
 
@@ -56,7 +58,7 @@ const Emergency = () => {
         </Alert>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card className="border-emergency hover:shadow-emergency transition-shadow">
             <CardHeader className="text-center">
               <div className="mx-auto p-3 rounded-full bg-emergency/10 w-fit mb-4">
@@ -82,6 +84,43 @@ const Emergency = () => {
             </CardContent>
           </Card>
 
+          <Card className="border-red-500 hover:shadow-red-500/20 transition-shadow">
+            <CardHeader className="text-center">
+              <div className="mx-auto p-3 rounded-full bg-red-500/10 w-fit mb-4">
+                <Zap className="h-8 w-8 text-red-500 animate-pulse" />
+              </div>
+              <CardTitle className="text-red-500">Panic Button</CardTitle>
+              <CardDescription>
+                One-touch emergency alert with location
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button 
+                className="w-full text-lg font-semibold bg-red-500 hover:bg-red-600 text-white animate-pulse"
+                size="lg"
+              >
+                PANIC
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="text-center">
+              <div className="mx-auto p-3 rounded-full bg-orange-500/10 w-fit mb-4">
+                <MessageSquare className="h-8 w-8 text-orange-500" />
+              </div>
+              <CardTitle>Whisper Code</CardTitle>
+              <CardDescription>
+                Silent emergency alert with code words
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white" size="lg">
+                Setup Code Words
+              </Button>
+            </CardContent>
+          </Card>
+
           <Card>
             <CardHeader className="text-center">
               <div className="mx-auto p-3 rounded-full bg-primary/10 w-fit mb-4">
@@ -98,7 +137,10 @@ const Emergency = () => {
               </Button>
             </CardContent>
           </Card>
+        </div>
 
+        {/* Additional Emergency Features */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <Card>
             <CardHeader className="text-center">
               <div className="mx-auto p-3 rounded-full bg-success/10 w-fit mb-4">
@@ -112,6 +154,29 @@ const Emergency = () => {
             <CardContent>
               <Button className="w-full bg-success hover:bg-success/90" size="lg">
                 Call Support
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Whisper Code Emergency</CardTitle>
+              <CardDescription>
+                Set up discrete code words for silent emergency alerts
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="p-4 bg-muted rounded-lg">
+                <p className="text-sm font-medium mb-2">How it works:</p>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Set custom code words or phrases</li>
+                  <li>• Say the code word in any conversation</li>
+                  <li>• Silent alert sent to emergency contacts</li>
+                  <li>• No visible notification to others around you</li>
+                </ul>
+              </div>
+              <Button variant="outline" className="w-full">
+                Configure Code Words
               </Button>
             </CardContent>
           </Card>

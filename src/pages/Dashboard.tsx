@@ -14,7 +14,10 @@ import {
   Smartphone,
   Map,
   Route,
-  AlertCircle
+  AlertCircle,
+  Navigation,
+  Search,
+  MapPinned
 } from "lucide-react";
 import dashboardPreview from "@/assets/dashboard-preview.jpg";
 import WorldMap from "@/components/WorldMap";
@@ -139,15 +142,198 @@ const Dashboard = () => {
 
       {/* Tabs for detailed information */}
       <Tabs defaultValue="map" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-5">
           <TabsTrigger value="map">Safety Map</TabsTrigger>
-          <TabsTrigger value="history">Travel History</TabsTrigger>
           <TabsTrigger value="routes">Safe Routes</TabsTrigger>
+          <TabsTrigger value="locations">Area Details</TabsTrigger>
+          <TabsTrigger value="history">Travel History</TabsTrigger>
           <TabsTrigger value="settings">Settings</TabsTrigger>
         </TabsList>
 
         <TabsContent value="map">
           <WorldMap />
+        </TabsContent>
+
+        <TabsContent value="routes">
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Search className="h-5 w-5 mr-2" />
+                  Safe Route Search
+                </CardTitle>
+                <CardDescription>
+                  Find the safest routes to your destination
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium">From</label>
+                    <div className="mt-1 p-3 border rounded-lg bg-muted">
+                      <MapPin className="h-4 w-4 inline mr-2 text-primary" />
+                      Current Location
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">To</label>
+                    <div className="mt-1 p-3 border rounded-lg">
+                      <input 
+                        type="text" 
+                        placeholder="Enter destination..." 
+                        className="w-full bg-transparent outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <Button className="w-full gradient-primary" size="lg">
+                  <Navigation className="h-4 w-4 mr-2" />
+                  Find Safe Route
+                </Button>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Route className="h-5 w-5 mr-2" />
+                  Recommended Safe Routes
+                </CardTitle>
+                <CardDescription>
+                  Your saved and suggested routes
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="p-4 border rounded-lg">
+                      <h4 className="font-medium mb-2">Home to Office</h4>
+                      <p className="text-sm text-muted-foreground mb-2">15 min • 95% safety score</p>
+                      <Badge className="bg-success">Saved Route</Badge>
+                    </div>
+                    <div className="p-4 border rounded-lg">
+                      <h4 className="font-medium mb-2">Airport Route</h4>
+                      <p className="text-sm text-muted-foreground mb-2">45 min • 92% safety score</p>
+                      <Badge className="bg-success">Saved Route</Badge>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="locations">
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <MapPinned className="h-5 w-5 mr-2" />
+                  Area Safety Details
+                </CardTitle>
+                <CardDescription>
+                  Detailed information about locations and safety conditions
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {/* Theft Areas */}
+                  <div className="p-4 border-l-4 border-red-500 bg-red-50 dark:bg-red-900/10 rounded-lg">
+                    <h4 className="font-semibold text-red-700 dark:text-red-400 mb-2">High Theft Areas</h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span>Rome Center</span>
+                        <Badge variant="destructive">High Risk</Badge>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Bangkok Markets</span>
+                        <Badge className="bg-orange-500">Medium Risk</Badge>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Mexico City</span>
+                        <Badge variant="destructive">High Risk</Badge>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Crowded Areas */}
+                  <div className="p-4 border-l-4 border-yellow-500 bg-yellow-50 dark:bg-yellow-900/10 rounded-lg">
+                    <h4 className="font-semibold text-yellow-700 dark:text-yellow-400 mb-2">Crowded Areas</h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span>Tokyo Station</span>
+                        <Badge className="bg-red-500">Very High</Badge>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Times Square</span>
+                        <Badge className="bg-orange-500">High</Badge>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Piccadilly</span>
+                        <Badge className="bg-yellow-500">Medium</Badge>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Police Presence */}
+                  <div className="p-4 border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/10 rounded-lg">
+                    <h4 className="font-semibold text-blue-700 dark:text-blue-400 mb-2">Police Presence</h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span>City Center</span>
+                        <Badge className="bg-green-500">High</Badge>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Tourist Area</span>
+                        <Badge className="bg-green-500">High</Badge>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Residential</span>
+                        <Badge className="bg-yellow-500">Medium</Badge>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Active Incidents Map */}
+                <div className="mt-6 p-4 border rounded-lg">
+                  <h4 className="font-semibold mb-4">Recent Incidents Near You</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-red-50 dark:bg-red-900/10 rounded-lg">
+                      <div className="flex items-center space-x-3">
+                        <AlertTriangle className="h-4 w-4 text-red-500" />
+                        <div>
+                          <p className="font-medium text-sm">Theft Reported</p>
+                          <p className="text-xs text-muted-foreground">Barcelona Center • 2 hours ago</p>
+                        </div>
+                      </div>
+                      <Badge variant="destructive">Active</Badge>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-orange-50 dark:bg-orange-900/10 rounded-lg">
+                      <div className="flex items-center space-x-3">
+                        <Users className="h-4 w-4 text-orange-500" />
+                        <div>
+                          <p className="font-medium text-sm">Large Crowd</p>
+                          <p className="text-xs text-muted-foreground">Tokyo Station • 1 hour ago</p>
+                        </div>
+                      </div>
+                      <Badge className="bg-orange-500">Ongoing</Badge>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-yellow-50 dark:bg-yellow-900/10 rounded-lg">
+                      <div className="flex items-center space-x-3">
+                        <AlertCircle className="h-4 w-4 text-yellow-500" />
+                        <div>
+                          <p className="font-medium text-sm">Road Closure</p>
+                          <p className="text-xs text-muted-foreground">Bangkok • 30 min ago</p>
+                        </div>
+                      </div>
+                      <Badge className="bg-yellow-500">Alert</Badge>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </TabsContent>
 
         <TabsContent value="history">
@@ -177,39 +363,6 @@ const Dashboard = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="routes">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Route className="h-5 w-5 mr-2" />
-                Recommended Safe Routes
-              </CardTitle>
-              <CardDescription>
-                Plan your journey with the safest routes
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <Button className="w-full gradient-primary" size="lg">
-                  Plan New Route
-                </Button>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-4 border rounded-lg">
-                    <h4 className="font-medium mb-2">Home to Office</h4>
-                    <p className="text-sm text-muted-foreground mb-2">15 min • 95% safety score</p>
-                    <Badge className="bg-success">Saved Route</Badge>
-                  </div>
-                  <div className="p-4 border rounded-lg">
-                    <h4 className="font-medium mb-2">Airport Route</h4>
-                    <p className="text-sm text-muted-foreground mb-2">45 min • 92% safety score</p>
-                    <Badge className="bg-success">Saved Route</Badge>
-                  </div>
-                </div>
               </div>
             </CardContent>
           </Card>
